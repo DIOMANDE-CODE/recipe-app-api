@@ -1,5 +1,6 @@
 FROM python:3.9-alpine
 MAINTAINER pythous
+EXPOSE 8080
 
 ENV PYTHONUNBUFFERED 1
 
@@ -12,3 +13,5 @@ COPY ./app /app
 
 RUN adduser -D user
 USER user
+
+ENTRYPOINT ["python","manage.py", "runserver","127.0.0.1:8000"]
